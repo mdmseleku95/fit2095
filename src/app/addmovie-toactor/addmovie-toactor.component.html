@@ -1,0 +1,36 @@
+<div class="section">
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Select!</th>
+    </tr>
+    <tr *ngFor="let item of moviesDB">
+      <td>{{item.title}}</td>
+      <td>{{item.year}}</td>
+      <td><button type="submit" class="btn btn-primary" (click)="onSelectUpdate(item)">Select Movie</button></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>Birth Year</th>
+      <th>Select!</th>
+    </tr>
+    <tr *ngFor="let itemA of actorsDB">
+      <td>{{itemA.name}}</td>
+      <td>{{itemA.bYear}}</td>
+      <td><button type="submit" class="btn btn-primary" (click)="onSelectActor(itemA)">Select Actor</button></td>
+    </tr>
+  </table>
+  <hr>
+  <div *ngIf="moviesDB.length>0">
+    <div class="form-group">
+      <label for="movieName">Movie Title</label>
+      <input type="text" class="form-control" id="movieName" [(ngModel)]="movietitle">
+    </div>
+    <div class="form-group">
+      <label for="actorName">Actor Name</label>
+      <input type="text" class="form-control" id="actorName" [(ngModel)]="fullName">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onUpdateMovie()">Update</button>
+  </div>
+</div>
